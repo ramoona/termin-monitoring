@@ -2,10 +2,6 @@
 
 1. Create your bot with [@BotFather](https://t.me/BotFather)
 2. Add commands `/start` and `/stop` to your bot
-3. Run `prepare` script that will create `.env` file:
-```bash
-> yarn prepare 
-```
 3. Update `.env` variables:
    - `TELEGRAM_BOT_TOKEN` - provided by `@BotFather` when the bot is created
    - `MONITORING_URL` - the URL of the service you need termin for. Tested on [this](https://service.berlin.de/dienstleistung/120691/en/) one.
@@ -18,7 +14,7 @@
 
 5. Start the script
 ```bash
-yarn start 
+> yarn start 
 ```
 
 6. Send `/start` to the chat with your bot to start monitoring.
