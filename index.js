@@ -25,7 +25,7 @@ async function runMonitoring(browser, sendNotification) {
     }
 }
 
-Bot.onText(/\/stajq rt/, async (msg) => {
+Bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
     const browser = await launchBrowser();
 

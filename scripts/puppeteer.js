@@ -1,12 +1,11 @@
 import puppeteer from 'puppeteer';
 
 export async function launchBrowser() {
-    return puppeteer.launch({ headless: false })
+    return puppeteer.launch()
 }
 
 export async function visitPage(browser, url, onSuccess = () => {}) {
     const page = await browser.newPage();
-    await page.setViewport({ width: 1240, height: 1080 });
     await page.setDefaultTimeout(3000)
     await page.goto(url);
 
