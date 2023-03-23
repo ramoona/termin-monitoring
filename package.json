@@ -7,6 +7,7 @@
     "puppeteer": "^19.7.5"
   },
   "scripts": {
+    "prepare": "cp .env.example .env",
     "start": "node index.js"
   }
 }
