@@ -4,13 +4,14 @@ import { Bot } from "./scripts/bot.js";
 
 const MINUTE = 60 * 1000;
 let timeout = null
-const [START_HOUR = -Infinity, END_HOUR = Infinity] = process.env.HOURS
+const [START_HOUR = -Infinity, END_HOUR = Infinity] = JSON.parse(process.env.HOURS)
 
 async function runMonitoring(browser, sendNotification) {
     const hours = new Date().getHours()
 
+    console.log('Monitoring...')
+
     if(hours > START_HOUR && hours < END_HOUR) {
-        console.log('Retrying...')
         try {
             await visitPage(browser, process.env.MONITORING_URL, sendNotification)
         } catch (e) {
@@ -30,10 +31,11 @@ Bot.onText(/\/stajq rt/, async (msg) => {
 
     await Bot.sendMessage(chatId, 'Monitoring started 👀');
 
-    runMonitoring(browser, text => Bot.sendMessage(chatId, text))
-
     Bot.onText(/\/stop/, async () => {
         clearTimeout(timeout)
         await Bot.sendMessage(chatId, 'Monitoring stopped');
     })
+
+
+    await runMonitoring(browser, text => Bot.sendMessage(chatId, text))
 });
