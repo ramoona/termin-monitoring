@@ -18,7 +18,7 @@
 
 5. Start the script
 ```bash
-yarn start 
+> yarn start 
 ```
 
 6. Send `/start` to the chat with your bot to start monitoring.
